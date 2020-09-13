@@ -1,0 +1,51 @@
+{% extends 'porfolio/base.html' %}
+
+{% load static %}
+
+{# match base.py  block content name #}
+{% block content %}
+<div>
+
+    {# blog:all_blogs id refrence  blog/urls.py name="all_blogs" #}
+    {% comment '' %} {# 多行註解 #}
+    <a href="{% url 'blog:all_blogs' %}">Blog</a>
+    <br>
+    <a href="{% static 'porfolio/resume.pdf' %}">Resume</a>
+    <br>
+    {% endcomment %}
+    <div class="row justify-content-center mb-3">
+        <div class="col-5">
+            <img src="{% static 'porfolio/IMG_1.jpg' %}" class="img-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-md-9 text-center">
+                    <h1 id="hometext" class="font-weight-bold">She is my Queen 😊</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="overflow-auto">
+            <div class="list-group" style="width: 350px; height: 200px">
+                <h2 class="mt-5">Projects</h2>
+                {% for project in projects %}
+                {% if project.url %}
+                <ul class="list-unstyled">
+                    <div class="media-body">
+                        <h3 class="mt-0 mb-1">{{ project.title }}</h5>
+                        <h4>{{ project.description }}</h4>
+                    </div>
+                    <li class="media">
+                        <a href="{{ project.url }}">
+                            <img src="{{ project.image.url }}" class="img-thumbnail" alt="...">
+                        </a>
+                        {% else %}
+                        <img src="{{ project.image.url }}" class="img-thumbnail" alt="...">
+                        {% endif %}
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
