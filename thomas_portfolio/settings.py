@@ -26,7 +26,7 @@ SECRET_KEY = "4jq7-1nij0ib3zmv0shma6a1fq-f7&uf43l==1x-$@7jv5cem2"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['thomas5566.pythonanywhere.com']
+ALLOWED_HOSTS = ["thomas5566.pythonanywhere.com"]
 
 
 # Application definition
@@ -121,3 +121,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file.")
