@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = "4jq7-1nij0ib3zmv0shma6a1fq-f7&uf43l==1x-$@7jv5cem2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['thomas5566.pythonanywhere.com']
 
 
 # Application definition
@@ -115,7 +115,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # add midea
 MEDIA_URL = "/media/"
